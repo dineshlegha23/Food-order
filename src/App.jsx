@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Explore from "./components/Explore";
 import TopDishes from "./components/TopDishes";
 import AppDownload from "./components/AppDownload";
+import Footer from "./components/Footer";
 function App() {
   return (
     <div>
@@ -12,6 +13,7 @@ function App() {
       <Explore />
       <TopDishes />
       <AppDownload />
+      <Footer />
     </div>
   );
 }
