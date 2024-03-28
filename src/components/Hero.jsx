@@ -8,7 +8,7 @@ const Hero = () => {
         <img
           src={assets.header_img}
           alt="food in plate"
-          className="2xl:h-[65vh] w-full"
+          className="2xl:h-[70vh] w-full"
         />
         <div className="absolute bottom-[30px] text-white flex flex-col gap-5 px-14">
           <h1 className="text-4xl font-semibold tracking-[2px]">
