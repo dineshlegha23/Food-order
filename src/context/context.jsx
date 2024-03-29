@@ -6,10 +6,10 @@ const ContextProvider = ({ children }) => {
   const [foodItems, setFoodItems] = useState(food_list);
 
   function handleFoodCategory(name) {
-    if (name !== "") {
-      setFoodItems(food_list.filter((item) => item.category === name));
-    } else {
+    if (name === "all") {
       setFoodItems(food_list);
+    } else {
+      setFoodItems(food_list.filter((item) => item.category === name));
     }
   }
 

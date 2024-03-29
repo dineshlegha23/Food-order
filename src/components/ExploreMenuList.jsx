@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useUserContext } from "../context/context";
 
-const ExploreMenuList = ({ name, image, isName, setIsName }) => {
+const ExploreMenuList = ({ name, image, category, setCategory }) => {
   const { handleFoodCategory } = useUserContext();
 
   return (
@@ -10,20 +10,13 @@ const ExploreMenuList = ({ name, image, isName, setIsName }) => {
         <img
           src={image}
           alt={name}
-          className={`min-w-28 min-h-28 rounded-full cursor-pointer ${
-            name === isName
-              ? "border-8 border-red-500"
-              : "border-8 border-blue-500"
+          className={`min-w-28 min-h-28 max-w-28 max-h-28 rounded-full cursor-pointer ${
+            category === name ? "border-4 border-red-500" : ""
           }
           `}
           onClick={() => {
-            if (isName === "") {
-              handleFoodCategory("");
-              setIsName(name);
-            } else {
-              setIsName("");
-              handleFoodCategory(name);
-            }
+            setCategory((prev) => (prev === name ? "all" : name));
+            handleFoodCategory(category === name ? "all" : name);
           }}
         />
       </div>

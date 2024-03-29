@@ -3,7 +3,7 @@ import { menu_list } from "../assets/assets";
 import ExploreMenuList from "./ExploreMenuList";
 
 const Explore = () => {
-  const [isName, setIsName] = useState("");
+  const [category, setCategory] = useState("all");
   return (
     <div className="max-w-[1200px] mx-auto px-5 flex flex-col gap-3">
       <h2 className="text-xl font-semibold">Explore our menu</h2>
@@ -17,8 +17,8 @@ const Explore = () => {
           return (
             <ExploreMenuList
               key={index}
-              isName={isName}
-              setIsName={setIsName}
+              category={category}
+              setCategory={setCategory}
               image={item.menu_image}
               name={item.menu_name}
             />
