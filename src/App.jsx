@@ -5,6 +5,8 @@ import Explore from "./components/Explore";
 import TopDishes from "./components/TopDishes";
 import AppDownload from "./components/AppDownload";
 import Footer from "./components/Footer";
+import { useUserContext } from "./context/context";
+
 function App() {
   return (
     <div>

@@ -22,7 +22,7 @@ const Hero = () => {
             experience, one delicious meal at a time.
           </p>
           <button className="bg-white text-black px-8 py-2 rounded-full w-fit ">
-            View Menu
+            <a href="#menu">View Menu</a>
           </button>
         </div>
       </div>

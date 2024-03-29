@@ -1,13 +1,14 @@
 import React from "react";
-import { food_list } from "../assets/assets";
+import { useUserContext } from "../context/context";
 import FoodItem from "./FoodItem";
 
 const TopDishes = () => {
+  const { foodItems } = useUserContext();
   return (
-    <div className="mx-auto max-w-[1200px] p-5">
+    <div className="mx-auto max-w-[1200px] p-5" id="menu">
       <p className="font-semibold text-lg">Top dishes near you</p>
       <div className="grid grid-cols-4 gap-8 mt-5">
-        {food_list.map((foodItem) => (
+        {foodItems.map((foodItem) => (
           <FoodItem
             key={foodItem._id}
             name={foodItem.name}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 const Navbar = () => {
@@ -15,7 +16,7 @@ const Navbar = () => {
             link === "home" ? "border-b-[2px] mb-2 border-black" : ""
           }`}
         >
-          home
+          <a href="#">home</a>
         </li>
         <li
           onClick={() => setLink("menu")}
@@ -23,7 +24,7 @@ const Navbar = () => {
             link === "menu" ? "border-b-[2px] mb-2 border-black" : ""
           }`}
         >
-          menu
+          <a href="#menu">menu</a>
         </li>
         <li
           onClick={() => setLink("mobile app")}
@@ -31,7 +32,7 @@ const Navbar = () => {
             link === "mobile app" ? "border-b-[2px] mb-2 border-black" : ""
           }`}
         >
-          mobile app
+          <a href="#mobile-app">mobile app</a>
         </li>
         <li
           onClick={() => setLink("contact us")}
@@ -39,7 +40,7 @@ const Navbar = () => {
             link === "contact us" ? "border-b-[2px] mb-2 border-black" : ""
           }`}
         >
-          contact us
+          <a href="#contact">contact us</a>
         </li>
       </ul>
       <div className="flex gap-8">
