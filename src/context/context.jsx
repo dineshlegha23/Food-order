@@ -1,9 +1,10 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { food_list } from "../assets/assets";
 export const Context = createContext();
 
 const ContextProvider = ({ children }) => {
   const [foodItems, setFoodItems] = useState(food_list);
+  const [cartItems, setCartItems] = useState([]);
 
   function handleFoodCategory(name) {
     if (name === "all") {
@@ -13,8 +14,47 @@ const ContextProvider = ({ children }) => {
     }
   }
 
+  function increaseQuantity(id, name, price, description, image) {
+    if (cartItems.find((item) => item.id === id)) {
+      cartItems.forEach((item) => {
+        if (item.id === id) {
+          item.quantity = item.quantity + 1;
+          return;
+        } else {
+          return item;
+        }
+      });
+    } else {
+      cartItems.push({ id, name, image, price, description, quantity: 1 });
+    }
+    console.log(cartItems);
+  }
+
+  function decreaseQuantity(id) {
+    cartItems.forEach((item, index) => {
+      if (item.id === id) {
+        if (item.quantity === 0) {
+          setCartItems(cartItems.filter((item) => item.id !== id));
+          return;
+        } else {
+          item.quantity = item.quantity - 1;
+        }
+      } else {
+        item;
+      }
+    });
+    console.log(cartItems);
+  }
+
   return (
-    <Context.Provider value={{ foodItems, handleFoodCategory }}>
+    <Context.Provider
+      value={{
+        foodItems,
+        handleFoodCategory,
+        increaseQuantity,
+        decreaseQuantity,
+      }}
+    >
       {children}
     </Context.Provider>
   );

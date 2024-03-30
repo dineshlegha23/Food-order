@@ -11,6 +11,7 @@ const TopDishes = () => {
         {foodItems.map((foodItem) => (
           <FoodItem
             key={foodItem._id}
+            id={foodItem._id}
             name={foodItem.name}
             image={foodItem.image}
             price={foodItem.price}
