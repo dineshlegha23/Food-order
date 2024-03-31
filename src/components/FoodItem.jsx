@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 import { useUserContext } from "../context/context";
 
 const FoodItem = ({ id, name, image, price, description }) => {
-  const { increaseQuantity, decreaseQuantity } = useUserContext();
+  const { increaseQuantity, decreaseQuantity, cartItems } = useUserContext();
   const [quantity, setQuantity] = useState(0);
   return (
     <div className="rounded-xl overflow-hidden  shadow-[0px_1px_10px_1px_rgba(0,0,0,0.1)]">

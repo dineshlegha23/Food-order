@@ -1,22 +1,20 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Explore from "./components/Explore";
-import TopDishes from "./components/TopDishes";
-import AppDownload from "./components/AppDownload";
 import Footer from "./components/Footer";
-import { useUserContext } from "./context/context";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Navbar />
-      <Hero />
-      <Explore />
-      <TopDishes />
-      <AppDownload />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

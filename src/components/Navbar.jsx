@@ -16,7 +16,7 @@ const Navbar = () => {
             link === "home" ? "border-b-[2px] mb-2 border-black" : ""
           }`}
         >
-          <a href="#">home</a>
+          <NavLink to={"/"}>Home</NavLink>
         </li>
         <li
           onClick={() => setLink("menu")}
@@ -48,7 +48,9 @@ const Navbar = () => {
           <img src={assets.search_icon} alt="search icon" />
         </div>
         <div>
-          <img src={assets.basket_icon} alt="basket icon" />
+          <NavLink to={"/cart"}>
+            <img src={assets.basket_icon} alt="basket icon" />
+          </NavLink>
         </div>
         <button className="border border-black px-5 rounded-full hover:bg-black hover:text-white transition-all">
           sign in

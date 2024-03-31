@@ -31,18 +31,16 @@ const ContextProvider = ({ children }) => {
   }
 
   function decreaseQuantity(id) {
-    cartItems.forEach((item, index) => {
+    cartItems.forEach((item) => {
       if (item.id === id) {
         if (item.quantity === 0) {
-          setCartItems(cartItems.filter((item) => item.id !== id));
           return;
         } else {
           item.quantity = item.quantity - 1;
         }
-      } else {
-        item;
       }
     });
+    setCartItems(cartItems.filter((item) => item.quantity > 0));
     console.log(cartItems);
   }
 
@@ -53,6 +51,7 @@ const ContextProvider = ({ children }) => {
         handleFoodCategory,
         increaseQuantity,
         decreaseQuantity,
+        cartItems,
       }}
     >
       {children}
