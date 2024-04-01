@@ -27,7 +27,6 @@ const ContextProvider = ({ children }) => {
     } else {
       cartItems.push({ id, name, image, price, description, quantity: 1 });
     }
-    console.log(cartItems);
   }
 
   function decreaseQuantity(id) {
@@ -41,7 +40,6 @@ const ContextProvider = ({ children }) => {
       }
     });
     setCartItems(cartItems.filter((item) => item.quantity > 0));
-    console.log(cartItems);
   }
 
   return (

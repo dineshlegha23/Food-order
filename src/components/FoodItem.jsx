@@ -4,7 +4,10 @@ import { useUserContext } from "../context/context";
 
 const FoodItem = ({ id, name, image, price, description }) => {
   const { increaseQuantity, decreaseQuantity, cartItems } = useUserContext();
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(
+    cartItems.find((item) => item.id === id)?.quantity || 0
+  );
+
   return (
     <div className="rounded-xl overflow-hidden  shadow-[0px_1px_10px_1px_rgba(0,0,0,0.1)]">
       <div className="relative overflow-hidden">
@@ -18,7 +21,7 @@ const FoodItem = ({ id, name, image, price, description }) => {
             <div className="flex gap-3 items-center bg-white rounded-full p-[5px] cursor-pointer">
               <img
                 onClick={() => {
-                  setQuantity(quantity - 1);
+                  setQuantity((prev) => prev - 1);
                   decreaseQuantity(id);
                 }}
                 src={assets.remove_icon_red}
@@ -27,7 +30,7 @@ const FoodItem = ({ id, name, image, price, description }) => {
               <p className="font-semibold">{quantity}</p>
               <img
                 onClick={() => {
-                  setQuantity(quantity + 1);
+                  setQuantity((prev) => prev + 1);
                   increaseQuantity(id, name, price, description, image);
                 }}
                 src={assets.add_icon_green}
@@ -37,7 +40,7 @@ const FoodItem = ({ id, name, image, price, description }) => {
           ) : (
             <img
               onClick={() => {
-                setQuantity(quantity + 1);
+                setQuantity((prev) => prev + 1);
                 increaseQuantity(id, name, price, description, image);
               }}
               src={assets.add_icon_white}
