@@ -43,16 +43,21 @@ const Navbar = () => {
           <a href="#contact">contact us</a>
         </li>
       </ul>
-      <div className="flex gap-8">
+      <div className="flex gap-8 items-center">
         <div>
           <img src={assets.search_icon} alt="search icon" />
         </div>
         <div>
           <NavLink to={"/cart"}>
-            <img src={assets.basket_icon} alt="basket icon" />
+            <img
+              src={assets.basket_icon}
+              alt="basket icon"
+              onClick={() => setLink("cart")}
+              className={`${link === "cart" ? "scale-110" : ""}`}
+            />
           </NavLink>
         </div>
-        <button className="border border-black px-5 rounded-full hover:bg-black hover:text-white transition-all">
+        <button className="border border-black px-5 py-2 rounded-full hover:bg-black hover:text-white transition-all">
           sign in
         </button>
       </div>
