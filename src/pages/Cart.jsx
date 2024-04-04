@@ -1,5 +1,7 @@
 import React from "react";
 import { useUserContext } from "../context/context";
+import CartTotals from "../components/CartTotals";
+import Promocode from "../components/Promocode";
 
 const Cart = () => {
   const { cartItems, decreaseQuantity } = useUserContext();
@@ -8,7 +10,7 @@ const Cart = () => {
     <div className="max-w-[1200px] mx-auto p-5">
       {cartItems && cartItems.length > 0 ? (
         <div>
-          <div className="grid grid-cols-6 mb-6 font-semibold text-center">
+          <div className="grid grid-cols-6 mb-2 font-semibold text-center pb-5 border-b-[1px]">
             <p className="col-span-2">Item</p>
             <p className="col-span-1">Quantity</p>
             <p className="col-span-1">Price</p>
@@ -18,7 +20,7 @@ const Cart = () => {
           {cartItems.map((item) => (
             <div
               key={item.id}
-              className="grid grid-cols-6 items-center text-center mb-5"
+              className="grid grid-cols-6 items-center font-semibold text-center mb-2 pb-2 border-b-[1px]"
             >
               <div className="flex items-center gap-5 col-span-2">
                 <img
@@ -40,12 +42,9 @@ const Cart = () => {
           Cart is empty.
         </p>
       )}
-      <div className="border-black border-2 w-fit px-10 py-5 mx-auto">
-        Total amount: $
-        {cartItems.reduce(
-          (acc, result) => acc + result.price * result.quantity,
-          0
-        )}
+      <div className="flex justify-between mt-20">
+        <CartTotals />
+        <Promocode />
       </div>
     </div>
   );
