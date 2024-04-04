@@ -15,17 +15,34 @@ const ContextProvider = ({ children }) => {
   }
 
   function increaseQuantity(id, name, price, description, image) {
-    if (cartItems.find((item) => item.id === id)) {
-      cartItems.forEach((item) => {
-        if (item.id === id) {
-          item.quantity = item.quantity + 1;
-          return;
-        } else {
-          return item;
-        }
-      });
-    } else {
-      cartItems.push({ id, name, image, price, description, quantity: 1 });
+    // if (cartItems.find((item) => item.id === id)) {
+    //   cartItems.forEach((item) => {
+    //     if (item.id === id) {
+    //       item.quantity = item.quantity + 1;
+    //       return;
+    //     } else {
+    //       return item;
+    //     }
+    //   });
+    // } else {
+    //   cartItems.push({ id, name, image, price, description, quantity: 1 });
+    // }
+
+    let find = false;
+    cartItems.forEach((item) => {
+      if (item.id === id) {
+        item.quantity = item.quantity + 1;
+        find = true;
+        return;
+      }
+    });
+    {
+    }
+    if (find === false) {
+      setCartItems([
+        ...cartItems,
+        { id, name, image, price, description, quantity: 1 },
+      ]);
     }
   }
 

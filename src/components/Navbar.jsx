@@ -1,9 +1,15 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { assets } from "../assets/assets";
+import { useUserContext } from "../context/context";
 
 const Navbar = () => {
+  const { cartItems } = useUserContext();
   const [link, setLink] = useState("home");
+
+  useEffect(() => {}, [cartItems]);
+  console.log(cartItems.length);
+
   return (
     <div className="flex justify-between p-5 mx-auto max-w-[1200px]">
       <div className="">
@@ -47,7 +53,7 @@ const Navbar = () => {
         <div>
           <img src={assets.search_icon} alt="search icon" />
         </div>
-        <div>
+        <div className="relative">
           <NavLink to={"/cart"}>
             <img
               src={assets.basket_icon}
@@ -55,6 +61,13 @@ const Navbar = () => {
               onClick={() => setLink("cart")}
               className={`${link === "cart" ? "scale-110" : ""}`}
             />
+            <i
+              className={`${
+                cartItems.length > 0
+                  ? "absolute w-3 h-3 rounded-full bg-orange-400 top-[-25%] right-[-30%]"
+                  : ""
+              }`}
+            ></i>
           </NavLink>
         </div>
         <button className="border border-black px-5 py-2 rounded-full hover:bg-black hover:text-white transition-all">
