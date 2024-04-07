@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useUserContext } from "../context/context";
 
 const CartTotals = () => {
-  const { cartItems } = useUserContext();
-  let total = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
+  const { total, handleTotal, cartItems } = useUserContext();
   const deliveryFee = 5;
+
+  useEffect(() => {
+    handleTotal();
+  }, [cartItems]);
+
   return (
     <section className="max-w-[600px] w-[400px]">
       <span className="font-semibold text-xl">Cart Totals</span>
@@ -18,14 +19,17 @@ const CartTotals = () => {
         </div>
         <div className="flex justify-between border-b-[1px] pb-1 font-semibold">
           <p> Delivery Fee</p>
-          <p>${deliveryFee}</p>
+          <p>${total > 0 ? deliveryFee : 0}</p>
         </div>
         <div className="flex justify-between border-b-[1px] pb-1 font-semibold">
           <p>Total</p>
-          <p>${total + deliveryFee}</p>
+          <p>${total > 0 ? total + deliveryFee : 0}</p>
         </div>
       </div>
-      <button className="mt-5 bg-orange-600 px-5 py-1 rounded-md text-white">
+      <button
+        disabled={total == 0}
+        className="disabled:bg-black/50 disabled:cursor-not-allowed mt-5 bg-orange-600 px-5 py-1 rounded-md text-white"
+      >
         Proceed to checkout
       </button>
     </section>

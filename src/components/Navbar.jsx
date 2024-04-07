@@ -8,7 +8,6 @@ const Navbar = () => {
   const [link, setLink] = useState("home");
 
   useEffect(() => {}, [cartItems]);
-  console.log(cartItems.length);
 
   return (
     <div className="flex justify-between p-5 mx-auto max-w-[1200px]">
