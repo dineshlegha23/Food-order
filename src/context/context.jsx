@@ -10,6 +10,11 @@ const ContextProvider = ({ children }) => {
   const [total, setTotal] = useState(0);
   const promoValues = ["flat100", "food10", "free"];
 
+  useEffect(() => {
+    setPromo("");
+    setPromoError("");
+  }, [cartItems]);
+
   function handlePromo(text) {
     if (text === "") {
       setPromo("");
@@ -30,6 +35,7 @@ const ContextProvider = ({ children }) => {
       if (promo.length != 0) {
         return;
       }
+      setPromoError("");
       if (value === text.toLowerCase()) {
         if (value === "flat100") {
           total > 100
@@ -42,11 +48,15 @@ const ContextProvider = ({ children }) => {
           total > 100
             ? setTotal((prev) => prev - prev * 0.1)
             : setPromoError("Cart value must be greater than $100");
-          total > 100 && setPromo("food10");
+          total > 100 && setPromo("food10") && setPromoError("");
 
           return;
         }
         if (value === "free") {
+          if (total === 0) {
+            setPromoError("Total must not be 0");
+            return;
+          }
           setTotal(5);
           setPromo("free");
           setPromoError("");
@@ -62,10 +72,6 @@ const ContextProvider = ({ children }) => {
       cartItems.reduce((total, item) => total + item.price * item.quantity, 0)
     );
   }
-
-  // useEffect(() => {
-  //   handleTotal();
-  // }, [cartItems]);
 
   function handleFoodCategory(name) {
     if (name === "all") {
