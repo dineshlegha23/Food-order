@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="">
           <img src={assets.logo} alt="logo" />
         </div>
-        <ul className="flex gap-8 font-semibold">
+        <ul className="flex gap-8 font-semibold md:hidden">
           <li
             onClick={() => setLink("home")}
             className={`cursor-pointer hover:text-gray-500 ${

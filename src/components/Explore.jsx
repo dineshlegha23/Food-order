@@ -7,7 +7,7 @@ const Explore = () => {
   return (
     <div className="max-w-[1200px] mx-auto px-5 flex flex-col gap-3">
       <h2 className="text-xl font-semibold">Explore our menu</h2>
-      <p className="text-[12px] w-[550px]">
+      <p className="text-[12px] max-w-[550px]">
         Choose from a diverse menu featuring a delectable array of dishes Our
         mission is to satisfy your cravings and elevate your dining experience,
         one delicious meal at a time.

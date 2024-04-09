@@ -7,7 +7,7 @@ const TopDishes = () => {
   return (
     <div className="mx-auto max-w-[1200px] p-5" id="menu">
       <p className="font-semibold text-lg">Top dishes near you</p>
-      <div className="grid grid-cols-4 gap-8 mt-5">
+      <div className="grid grid-cols-4 gap-8 mt-5 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1">
         {foodItems.map((foodItem) => (
           <FoodItem
             key={foodItem._id}

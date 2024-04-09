@@ -9,6 +9,7 @@ export default {
       md: { max: "767px" },
       sm: { max: "639px" },
       xs: { max: "480px" },
+      xxs: { max: "300px" },
     },
     extend: {
       keyframes: {

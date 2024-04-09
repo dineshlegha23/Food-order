@@ -14,7 +14,7 @@ const FoodItem = ({ id, name, image, price, description }) => {
         <img
           src={image}
           alt={name}
-          className="hover:scale-110 transition-all duration-500"
+          className="hover:scale-110 transition-all duration-500 w-full"
         />
         <div className="absolute bottom-2 right-2">
           {quantity > 0 ? (

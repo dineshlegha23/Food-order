@@ -10,7 +10,7 @@ const ExploreMenuList = ({ name, image, category, setCategory }) => {
         <img
           src={image}
           alt={name}
-          className={`min-w-28 min-h-28 max-w-28 max-h-28 rounded-full cursor-pointer ${
+          className={`min-w-28 h-28 sm:min-w-20 sm:h-20 rounded-full cursor-pointer ${
             category === name ? "border-4 border-red-500" : ""
           }
           `}

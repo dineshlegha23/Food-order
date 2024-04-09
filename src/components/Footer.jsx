@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <div className="bg-black/80" id="contact">
       <div className="max-w-[1200px] mx-auto p-5 text-white  mt-10 pt-16">
-        <div className="flex justify-between pb-10 border-b-[1px] border-gray-400">
-          <div className="w-[500px]">
+        <div className="grid grid-cols-4 md:grid-cols-3 pb-10 border-b-[1px] border-gray-400">
+          <div className="max-w-[400px] col-span-2 xs:col-span-4">
             <div className="mb-5">
               <img src={assets.logo} alt="tomato logo" />
             </div>
@@ -34,7 +34,7 @@ const Footer = () => {
               />
             </div>
           </div>
-          <div>
+          <div className="justify-self-end md:justify-self-center xs:mt-10 xxs:col-span-4">
             <p className="text-xl font-semibold mb-5">COMPANY</p>
             <ul className="text-gray-300">
               <li className="cursor-pointer hover:text-white">Home</li>
@@ -45,7 +45,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="mr-16">
+          <div className="justify-self-end md:justify-self-start mt-10 xs:ml-10">
             <p className="text-xl font-semibold mb-5">GET IN TOUCH</p>
             <ul className="text-gray-300">
               <li className="cursor-pointer hover:text-white">
