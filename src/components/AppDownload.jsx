@@ -7,16 +7,16 @@ const AppDownload = () => {
       <p className="text-3xl mx-auto text-center mt-16 font-semibold">
         For Better Experience Download <br /> Tomato App
       </p>
-      <div className="flex text-center mx-auto justify-center mt-8 gap-5">
+      <div className="flex text-center mx-auto justify-center mt-8 gap-5 xs:flex-col">
         <img
           src={assets.play_store}
           alt="play store icon"
-          className="cursor-pointer hover:scale-105 transition-all"
+          className="cursor-pointer hover:scale-105 transition-all max-w-40 xs:mx-auto"
         />
         <img
           src={assets.app_store}
           alt="app store icon"
-          className="cursor-pointer hover:scale-105 transition-all"
+          className="cursor-pointer hover:scale-105 transition-all max-w-40 xs:mx-auto"
         />
       </div>
     </div>
