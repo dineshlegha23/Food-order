@@ -25,8 +25,8 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-between p-5 mx-auto max-w-[1200px]">
-        <div className="">
+      <div className="flex justify-between p-5 mx-auto max-w-[1200px] xs:flex-col">
+        <div className="xs:mx-auto">
           <img src={assets.logo} alt="logo" />
         </div>
         <ul className="flex gap-8 font-semibold md:hidden">
@@ -63,7 +63,7 @@ const Navbar = () => {
             <a href="#contact">contact us</a>
           </li>
         </ul>
-        <div className="flex gap-8 items-center">
+        <div className="flex gap-8 items-center xs:mt-5 xs:mx-auto">
           <div>
             <img src={assets.search_icon} alt="search icon" />
           </div>
