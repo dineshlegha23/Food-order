@@ -34,7 +34,7 @@ const Footer = () => {
               />
             </div>
           </div>
-          <div className="xs:mt-10 justify-self-end md:justify-self-start">
+          <div className="xs:mt-10 justify-self-end md:justify-self-start sm:ml-16 xs:ml-0">
             <p className="text-xl font-semibold mb-5">COMPANY</p>
             <ul className="text-gray-300">
               <li className="cursor-pointer hover:text-white">Home</li>
