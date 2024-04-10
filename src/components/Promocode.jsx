@@ -5,14 +5,14 @@ const Promocode = () => {
   const promoRef = useRef();
   const { promo, handlePromo, promoError } = useUserContext();
   return (
-    <div>
+    <div className="md:mx-auto md:w-full">
       <p className="font-medium mb-2">If you have a promocode, enter it here</p>
-      <div>
+      <div className="md:w-full">
         <input
           ref={promoRef}
           type="text"
           placeholder="promo code"
-          className="border-[1px] px-2 py-1 rounded-s-md bg-black/10 placeholder:text-black/70 w-[400px]"
+          className="border-[1px] px-2 py-1 rounded-s-md bg-black/10 placeholder:text-black/70 w-[400px] lg:w-[30vw] xs:w-[70%]"
         />
         <button
           onClick={() => handlePromo(promoRef.current.value)}

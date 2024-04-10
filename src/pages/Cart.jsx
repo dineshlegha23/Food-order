@@ -26,7 +26,7 @@ const Cart = () => {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-32 rounded-xl"
+                  className="w-32 rounded-xl md:hidden"
                 />
                 <p>{item.name}</p>
               </div>
@@ -42,7 +42,7 @@ const Cart = () => {
           Cart is empty.
         </p>
       )}
-      <div className="flex justify-between mt-20">
+      <div className="flex justify-between mt-20 md:flex-col">
         <CartTotals />
         <Promocode />
       </div>
