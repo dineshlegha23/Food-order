@@ -12,7 +12,7 @@ const Promocode = () => {
           ref={promoRef}
           type="text"
           placeholder="promo code"
-          className="border-[1px] px-2 py-1 rounded-s-md bg-black/10 placeholder:text-black/70 w-[400px] lg:w-[30vw] xs:w-[70%]"
+          className="border-[1px] px-2 py-1 rounded-s-md bg-black/10 placeholder:text-black/70 w-[400px] lg:w-[30vw] xs:w-[65%]"
         />
         <button
           onClick={() => handlePromo(promoRef.current.value)}
